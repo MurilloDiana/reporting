@@ -1,3 +1,9 @@
-from django.db import models
+from djongo import models
 
-# Create your models here.
+class Visit(models.Model):
+    date = models.DateTimeField()
+    status = models.CharField(max_length=50)
+    reserved = models.BooleanField()
+
+    class Meta:
+        db_table = 'visits'  # Nombre de la colección en MongoDB
